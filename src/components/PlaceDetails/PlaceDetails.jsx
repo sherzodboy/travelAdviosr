@@ -67,18 +67,6 @@ const PlaceDetails = ({ place }) => {
             alt="rating"
           />
           <Typography variant="subtitle2" color="textSecondary">
-            Certificate of Excellence 2020
-          </Typography>
-        </Box>
-        {/* ))} */}
-        <Box my={1} className={classes.spacing}>
-          {/* <img src={award.images.small} alt={award.display_name} /> */}
-          <img
-            style={{ width: "20px" }}
-            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRUf6TNPSc-KlFQwHjxOGIaYCpklK-m0zQCaL2te528rAW2w9HEObutDKqzESS_nwZlVzA&usqp=CAU"
-            alt="rating"
-          />
-          <Typography variant="subtitle2" color="textSecondary">
             Certificate of Excellence 2019
           </Typography>
         </Box>
@@ -96,6 +84,32 @@ const PlaceDetails = ({ place }) => {
             <LocationOn /> {place.address}
           </Typography>
         )}
+        {place?.address && (
+          <Typography
+            gutterBottom
+            variant="body2"
+            color="textSecondary"
+            className={classes.spacing}
+          >
+            <Phone /> {place.phone}
+          </Typography>
+        )}
+        <CardActions>
+          <Button
+            size="small"
+            color="primary"
+            onClick={() => window.open(place.web_url, "_blank")}
+          >
+            Trip Advisor
+          </Button>
+          <Button
+            size="small"
+            color="primary"
+            onClick={() => window.open(place.website, "_blank")}
+          >
+            Website
+          </Button>
+        </CardActions>
       </CardContent>
     </Card>
   );
